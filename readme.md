@@ -16,6 +16,7 @@ It shows a list of questions. The users can add new questions to the list and vo
 * Entity framework core 3.1
 * Asp.net SignalR core 1.1
 * XUnit 2.4.1
+* FluentAssertions 5.10
  
 ## Used client side frameworks
 * Twitter Bootstrap 4.3.1
