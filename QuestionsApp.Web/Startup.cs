@@ -40,6 +40,10 @@ namespace QuestionsApp.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            // activate static files serving
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             // Activate swagger
