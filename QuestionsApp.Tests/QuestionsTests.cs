@@ -26,7 +26,7 @@ namespace QuestionsApp.Tests
 
         private Web.Api.Controllers.Commands.QuestionsController NewCommand()
         {
-            return new Web.Api.Controllers.Commands.QuestionsController(Context);
+            return new Web.Api.Controllers.Commands.QuestionsController(Context, null);
         }
 
         [Fact]
