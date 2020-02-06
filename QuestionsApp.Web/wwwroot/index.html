@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.19.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@3.1.0/dist/browser/signalr.min.js" crossorigin="anonymous"></script>    
     <title>Ask your questions</title>
 </head>
 <body>
@@ -85,7 +86,6 @@
                     axios
                         .put('api/Commands/Questions/ask?' + $.param({ content: this.newQuestion }))
                         .then(() => {
-                            this.getQuestions();
                             this.newQuestion = '';
                         })
                         .catch(function (error) { alert(error.response.data); });
@@ -107,5 +107,11 @@
                 this.getQuestions();
             }
         });
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("hub")
+            .build();
+        connection.start().catch(err => console.error(err.toString()));
+        connection.on("Refresh", () => { console.log("Refresh"); questionListController.getQuestions(); });
     </script>
 </body>
