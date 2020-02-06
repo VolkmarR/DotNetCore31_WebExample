@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using QuestionsApp.Web.DB;
 
 namespace QuestionsApp.Web
 {
@@ -18,6 +20,9 @@ namespace QuestionsApp.Web
         {
             // Registration and configuration of the MVC Framework
             services.AddControllers();
+
+            // Configuration for Entity Framework
+            services.AddDbContext<QuestionsContext>(options => options.UseInMemoryDatabase("Dummy"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
