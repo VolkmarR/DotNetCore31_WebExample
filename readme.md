@@ -12,7 +12,7 @@ It shows a list of questions. The users can add new questions to the list and vo
 
 * Dotnet core 3.1
 * Asp.net core 3.1
-* Swashbuckle 4.0.1
+* Swashbuckle 5.0.0
 * Entity framework core 3.1
 * Asp.net SignalR core 1.1
 * XUnit 2.4.1
